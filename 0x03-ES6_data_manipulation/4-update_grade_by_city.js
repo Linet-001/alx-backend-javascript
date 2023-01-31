@@ -1,24 +1,33 @@
-/*
- * File: 4-update_grade_by_city.js
- * Auth: Yovo Koffi Vianney
- */
+function updateStudentGradeByCity(students, city, newGrades) {
+  if (!Array.isArray(students)) {
+    return [];
+  }
+  if (!Array.isArray(newGrades)) {
+    return [];
+  }
 
-/**
- * updateStudentGradeByCity - Retrieves a list of students by city with their grades.
- * @studentList: A list of students.
- * @city: Student's location.
- * @newGrades:Student's grade.
- * Return: An array of students for a specific city with their new grade.
- */
-export default function updateStudentGradeByCity(studentList, city, newGrades) {
-  return studentList
-    .filter((item) => item.location === city)
-    .map((student) => {
-      const grades = newGrades.filter((item) => item.studentId === student.id);
-      const grade = grades.length ? grades[0].grade : 'N/A';
-      return {
-        ...student,
-        grade,
-      };
-    });
+  const stCity = students.filter((student) => student.location === city);
+
+  const studentsGraded = stCity.map((student) => {
+    const gradeFilter = newGrades.filter(
+      (newGrade) => newGrade.studentId === student.id,
+    );
+
+    let grade;
+
+    if (gradeFilter[0]) {
+      grade = gradeFilter[0].grade;
+    } else {
+      grade = 'N/A';
+    }
+
+    return {
+      ...student,
+      grade,
+    };
+  });
+
+  return studentsGraded;
 }
+
+export default updateStudentGradeByCity;
