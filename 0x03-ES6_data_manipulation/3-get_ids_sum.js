@@ -1,13 +1,14 @@
-function getStudentIdsSum(students) {
-  if (!Array.isArray(students)) {
-    return [];
-  }
+/*
+ * File: 3-get_ids_sum.js
+ * Auth: linet
+ */
 
-  const reducer = (acc, item) => acc + item.id;
-
-  const sumIds = students.reduce(reducer, 0);
-
-  return sumIds;
+/**
+ * getStudentsByLocation - Retrieves the sum of student ids.
+ * @studentList: A list of students.
+ * Return: The sum of all the student ids.
+ */
+export default function getStudentIdsSum(studentList) {
+  return studentList.reduce((previous, current) => previous + current.id, 0);
 }
 
-export default getStudentIdsSum;
