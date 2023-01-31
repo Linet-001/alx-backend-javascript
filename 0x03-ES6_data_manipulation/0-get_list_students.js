@@ -1,11 +1,16 @@
-Create a function named getListStudents that returns an array of objects. function getListStudents() {
-  const obj = [
+/*
+ * File: 0-get_list_students.js
+ * Auth: Yovo Koffi Vianney
+ */
+
+/**
+ * getListStudents - Retrieves a list of students.
+ * Return: An array of 3 objects.
+ */
+export default function getListStudents() {
+  return [
     { id: 1, firstName: 'Guillaume', location: 'San Francisco' },
     { id: 2, firstName: 'James', location: 'Columbia' },
     { id: 5, firstName: 'Serena', location: 'San Francisco' },
   ];
-
-  return obj;
 }
-
-export default getListStudents;
